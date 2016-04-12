@@ -2,8 +2,15 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
+  resources :users, only: [:new, :create, :edit, :update]
+    #restricted to the user that's logged in
+    #method in User controller
+
+    #filters, before an action make sure they're logged in
+
   resources :products
 
+  #resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
